@@ -17,7 +17,7 @@
     >
       <input
         type="text"
-        class="outline-none text-black-1 text-h4  w-full bg-transparent"
+        class="outline-none text-black-1 text-h4 w-full bg-transparent"
         @focusin="setFocus(true)"
         @focusout="setFocus(false)"
         :placeholder="placeholder"
@@ -112,31 +112,29 @@ export default {
 </script>
 
 <style scoped>
-
 input::placeholder {
-	@apply text-gray-500 font-[450];
+  @apply text-gray-500 font-[450];
 }
 
 .input-default {
-	box-shadow: inset rgba(128, 128, 128, 0.36) 0px 0px 0px 1px;
+  box-shadow: inset rgba(128, 128, 128, 0.36) 0px 0px 0px 1px;
 }
 .input-valid {
-	box-shadow: inset rgba(128, 128, 128, 0.36) 0px 0px 0px 1px;
+  box-shadow: inset rgba(128, 128, 128, 0.36) 0px 0px 0px 1px;
 }
 .input-focused {
-	box-shadow: inset #2b42d7 0px 0px 0px 1px;
+  box-shadow: inset #2b42d7 0px 0px 0px 1px;
 }
 
 .input-invalid {
-	box-shadow: inset #ff0000 0px 0px 0px 1px;
+  box-shadow: inset #ff0000 0px 0px 0px 1px;
 }
 
 .input-disabled {
-	box-shadow: inset #6e6e6e 0px 0px 0px 1px;
+  box-shadow: inset #6e6e6e 0px 0px 0px 1px;
 }
 
 .input-disabled input {
-	@apply text-gray-500;
+  @apply text-gray-500;
 }
-
 </style>

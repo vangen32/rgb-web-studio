@@ -2,9 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-
-@layer{
-    .oswald {
-        font-family: "Oswald", sans-serif;
-    }
+@layer {
+  .oswald {
+    font-family: "Oswald", sans-serif;
+  }
 }

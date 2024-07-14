@@ -73,3 +73,7 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+Dependencies:
+
+[Vue3-toastify](https://github.com/jerrywu001/vue3-toastify)

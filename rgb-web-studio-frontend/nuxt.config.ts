@@ -2,13 +2,11 @@
 // @ts-ignore
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
-  devtools: { enabled: false},
-  plugins : [
-  '~/plugins/toaster'
-  ],
-  modules: ["@nuxtjs/tailwindcss", '@pinia/nuxt'],
+  devtools: { enabled: false },
+  plugins: ["~/plugins/toaster"],
+  modules: ["@nuxtjs/tailwindcss", "@pinia/nuxt"],
   pinia: {
-    storesDirs: ['./stores/**'],
+    storesDirs: ["./stores/**"],
   },
   css: ["~/assets/css/main.css"],
   postcss: {
@@ -32,14 +30,14 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-        }
+          href: "https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200",
+        },
       ],
     },
   },
-  runtimeConfig : {
-    public : {
-      BASE_URL: process.env.BASE_URL
-    }
+  runtimeConfig: {
+    public: {
+      BASE_URL: process.env.BASE_URL,
+    },
   },
 });

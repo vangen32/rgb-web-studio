@@ -10,6 +10,6 @@ body {
 #__nuxt {
   min-height: 100vh;
 }
-.title{
+.title {
   @apply text-3xl bg-white shadow px-10 py-8 font-semibold;
 }

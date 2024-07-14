@@ -53,8 +53,9 @@
             :class="page === modelValue ? 'active' : ''"
             v-on:click="setCurrentPage(page)"
             class="flex rounded justify-center items-center p-1 w-8 h-8 text-[#A0A3A6] bg-white border-gray-300 border text-center text-[13px] not-italic font-semibold leading-3 tracking-[-0.04px]"
-            >{{ page }}</button
           >
+            {{ page }}
+          </button>
         </template>
       </li>
       <li v-on:click="getNextPage">
@@ -82,76 +83,75 @@
 </template>
 
 <script setup>
-import {defineProps, defineEmits, computed, ref} from 'vue';
+import { defineProps, defineEmits, computed, ref } from "vue";
 
 const props = defineProps({
-	modelValue: Number,
-	pages: Number,
+  modelValue: Number,
+  pages: Number,
 });
 
-const emit = defineEmits(['update:modelValue']);
+const emit = defineEmits(["update:modelValue"]);
 
 const limitPages = ref(3);
 
 const displayedPages = computed(() => {
-	const pages = [];
-	const { modelValue : currentPage, pages: totalPages } = props;
+  const pages = [];
+  const { modelValue: currentPage, pages: totalPages } = props;
 
-	const addPageRange = (start, end) => {
-		for (let i = start; i <= end; i++) {
-			pages.push(i);
-		}
-	};
+  const addPageRange = (start, end) => {
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+  };
 
-	if (totalPages <= limitPages.value) {
-		addPageRange(1, totalPages);
-	} else {
-		if (currentPage <= limitPages.value) {
-			addPageRange(1, limitPages.value);
-			if (totalPages > limitPages.value + 1) {
-				pages.push(null);
-			}
-			addPageRange(totalPages, totalPages);
-		} else if (currentPage >= totalPages - limitPages.value + 1) {
-			addPageRange(1, 1);
-			if (totalPages > limitPages.value + 1) {
-				pages.push(null);
-			}
-			addPageRange(totalPages - limitPages.value + 1, totalPages);
-		} else {
-			addPageRange(1, 1);
-			if (totalPages > limitPages.value + 1) {
-				pages.push(null);
-			}
-			addPageRange(currentPage - 1, currentPage + 1);
-			if (totalPages > limitPages.value + 1) {
-				pages.push(null);
-			}
-			addPageRange(totalPages, totalPages);
-		}
-	}
+  if (totalPages <= limitPages.value) {
+    addPageRange(1, totalPages);
+  } else {
+    if (currentPage <= limitPages.value) {
+      addPageRange(1, limitPages.value);
+      if (totalPages > limitPages.value + 1) {
+        pages.push(null);
+      }
+      addPageRange(totalPages, totalPages);
+    } else if (currentPage >= totalPages - limitPages.value + 1) {
+      addPageRange(1, 1);
+      if (totalPages > limitPages.value + 1) {
+        pages.push(null);
+      }
+      addPageRange(totalPages - limitPages.value + 1, totalPages);
+    } else {
+      addPageRange(1, 1);
+      if (totalPages > limitPages.value + 1) {
+        pages.push(null);
+      }
+      addPageRange(currentPage - 1, currentPage + 1);
+      if (totalPages > limitPages.value + 1) {
+        pages.push(null);
+      }
+      addPageRange(totalPages, totalPages);
+    }
+  }
 
-	return pages;
+  return pages;
 });
 
 const getPreviousPage = () => {
-	if (props.modelValue > 1) {
-		emit('update:modelValue', props.modelValue - 1);
-	}
+  if (props.modelValue > 1) {
+    emit("update:modelValue", props.modelValue - 1);
+  }
 };
 
 const getNextPage = () => {
-	if (props.modelValue < props.pages) {
-		emit('update:modelValue', props.modelValue + 1);
-	}
+  if (props.modelValue < props.pages) {
+    emit("update:modelValue", props.modelValue + 1);
+  }
 };
 
 const setCurrentPage = (page) => {
-	if (page && page > 0 && page <= props.pages) {
-		emit('update:modelValue', page);
-	}
+  if (page && page > 0 && page <= props.pages) {
+    emit("update:modelValue", page);
+  }
 };
-
 </script>
 
 <style scoped>

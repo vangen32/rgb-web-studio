@@ -32,7 +32,7 @@ async function Seed() {
       if (!fs.existsSync(newDirectory)) {
         fs.mkdirSync(newDirectory, { recursive: true });
       }
-      fs.copyFileSync("./seedDb/lorem_ipsum.pdf", newPath);
+      fs.copyFileSync("seedDb/lorem_ipsum.pdf", newPath);
       const newFileData = {
         filename: newFileName,
         size: mockFileStat.size,
@@ -52,6 +52,8 @@ async function Seed() {
   const files = await addFile(u._id, 7);
   u.files.push(...files.map((x) => x._id));
   await u.save();
+  console.log('\x1b[36m', "User added successfully", '\x1b[0m')
+  console.log(u)
   mongoose.connection.close();
 }
 

@@ -1,7 +1,7 @@
 <template>
-	<NuxtLayout>
-		<NuxtPage/>
-	</NuxtLayout>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <script>
@@ -11,11 +11,11 @@ export default {
 </script>
 
 <script setup>
-import { useRouter } from 'vue-router'
+import { useRouter } from "vue-router";
 
-const router = useRouter()
+const router = useRouter();
 
-router.push({name : "user-list-page", params : {page : 1}})
+router.push({ name: "user-list-page", params: { page: 1 } });
 </script>
 
 <style scoped>
