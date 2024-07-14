@@ -129,4 +129,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-uploads
+rgb-web-studio-backend/uploads
+rgb-web-studio-backend/src/uploads
