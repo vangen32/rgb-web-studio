@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "rgb-web-studio-frontend",
   "private": true,
   "type": "module",
   "scripts": {
@@ -7,11 +7,20 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "px": "npx prettier --write ."
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.12.0",
+    "@pinia/nuxt": "^0.5.1",
     "nuxt": "^3.12.3",
+    "vue": "latest",
+    "vue3-toastify": "^0.2.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.2"
+  },
+  "overrides": {
     "vue": "latest"
   }
 }
